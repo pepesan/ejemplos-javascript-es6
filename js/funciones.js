@@ -1,4 +1,36 @@
 /*
+función impura
+*/
+var values={
+    a:1
+};
+/*
+    El parámetro items es un objeto con una propiedad llamada a que se multiplicará por 1 se le sumará 2;
+*/
+function impureFunction(items){
+    var b=1;
+    items.a=items.a*b+2;
+    return items.a;
+}
+var values2={a:2};
+var c=impureFunction(values);
+console.log(c);
+console.log(values.a);
+c=impureFunction(values2);
+console.log(c);
+
+
+function pureFunction(a){
+    var b=1;
+    return a*b+2;
+}
+values.a=1;
+c=pureFunction(values.a);
+console.log(c);
+c=pureFunction(7);
+console.log(c);
+
+/*
 Funciones con parámetros por defecto
 */
 
