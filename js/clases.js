@@ -1,3 +1,10 @@
+//antigua definición
+/*
+var Polygon=function(height, width){
+    this.height = height; 
+    this.width = width; 
+}
+*/
 //nueva definición de clase
 class Polygon { 
    constructor(height, width) { 
@@ -17,8 +24,12 @@ class StaticMem {
       console.log("Static Function called") 
    } 
 } 
-StaticMem.disp() //invoke the static method
-
+StaticMem.disp(); //invoke the static method
+class Pepito{
+    construct(){
+        StaticMem.disp();
+    }
+}
 
 //tipos de objetos
 class Person{ } 
@@ -27,32 +38,33 @@ var isPerson = obj instanceof Person;
 console.log(" obj is an instance of Person " + isPerson); 
 
 //herencia
-class Shape { 
-   constructor(a) { 
-      this.Area = a
+class Madre { 
+   constructor(area) { 
+      this.area = area;
    } 
 } 
-class Circle extends Shape { 
+class Hija extends Madre { 
    disp() { 
-      console.log("Area of the circle:  "+this.Area) 
+      console.log("Area of the circle:  "+this.area) 
    } 
 } 
-var obj = new Circle(223); 
-obj.disp() 
+var obj = new Hija(223); 
+console.log(obj);
+obj.disp();
 
 
 
 class Root { 
    test() { 
-      console.log("call from parent class") 
+      console.log("call from parent class");
    } 
 } 
 class Child extends Root {} 
-class Leaf extends Child   
+class Leaf extends Child  {} 
 
 //indirectly inherits from Root by virtue of inheritance {} 
-var obj = new Leaf();
-obj.test() 
+obj = new Leaf();
+obj.test() ;
 
 
 //sobre escritura de métodos del padre
@@ -71,16 +83,43 @@ obj.doPrint();
 
 
 //uso de super
-class PrinterClass { 
+class PrinterClass2 { 
    doPrint() {
       console.log("doPrint() from Parent called…") 
    } 
 }  
-class StringPrinter extends PrinterClass { 
+class StringPrinter2 extends PrinterClass2 { 
    doPrint() { 
       super.doPrint() 
       console.log("doPrint() is printing a string…") 
    } 
 } 
-var obj = new StringPrinter() 
+var obj = new StringPrinter2() 
 obj.doPrint()
+
+
+
+
+class Animal{
+    constructor(edad=0){
+        this.edad=edad;
+    }
+}
+
+var animalico=new Animal(2);
+console.log(animalico);
+
+class Gato extends Animal{
+    constructor(edad=0, rascador=true){
+        super(edad);
+        this.rascador=rascador;
+    }
+}
+var gatete=new Gato(12,false);
+console.log(gatete);
+
+
+
+
+
+
