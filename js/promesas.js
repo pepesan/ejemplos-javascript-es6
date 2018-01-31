@@ -1,15 +1,21 @@
-var promise = new Promise(function(resolve , reject) {    
-   // do a thing, possibly async , then..  
-    if(1==1){
-       resolve("stuff worked");  
-    }else{   
-        reject(Error("It broke"));  
+var promise = new Promise(
+    function(resolve , reject) {    
+        // Aquí va el código que podría fallar, la petición o lo que sea  
+        setTimeout(function(){
+            resolve("¡Éxito!"); // ¡Todo salió bien!
+        }, 2500);
+
     }
-});  
+);  
 console.log(promise);
+//en el caso de que se haya ejecutado el resolve
 promise.then(
     function(datos){
-        console.log(datos);
+        console.log("Datos: "+datos);
+    }
+    //en el catch es cuando ha ocurrido un fallo
+).catch(
+    function(error){
+        console.log("error:"+error.message);
     }
 );
-// Give this to someone
